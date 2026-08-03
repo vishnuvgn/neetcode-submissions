@@ -1,0 +1,17 @@
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        int left = 0;
+        int right = static_cast<int>(s.size()) - 1;
+        while (left < right) {
+            while (left<right && !std::isalnum(s[left])) ++left;
+            while (left<right && !std::isalnum(s[right])) --right;
+            if (std::toupper(s[left]) != std::toupper(s[right])) return false;
+            else {
+                ++left;
+                --right;
+            }
+        }
+        return true;
+    }
+};
